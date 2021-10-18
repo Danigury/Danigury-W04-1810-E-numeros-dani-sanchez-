@@ -1,24 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import "./App.css";
+import Button from "./components/Button.js";
+import Input from "./components/Input.js";
 
 function App() {
+  const [number, setNumber] = useState(1);
+
+  const increment = () => {
+    if (number < 16) {
+      setNumber(number + 1);
+    }
+  };
+
+  const decrement = () => {
+    if (number > 1) {
+      setNumber(number - 1);
+    }
+  };
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Button text="<<" actionOnClick={decrement} />
+      <Input number={number} />
+      <Input number={number + 1} />
+      <Input number={number + 2} />
+      <Input number={number + 3} />
+      <Input number={number + 4} />
+      <Button text=">>" actionOnClick={increment} />
+    </>
   );
 }
 
