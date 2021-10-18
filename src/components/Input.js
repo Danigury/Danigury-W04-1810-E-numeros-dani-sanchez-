@@ -1,5 +1,5 @@
-const Input = ({ number }) => {
-  return <input type="text" value={number} readOnly />;
+const Input = ({ number, actionOnClick }) => {
+  return <input type="text" value={number} onClick={actionOnClick} readOnly />;
 };
 
 export default Input;
